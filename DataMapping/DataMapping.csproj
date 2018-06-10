@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A314067E-9962-4020-8501-DE424D0543AC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataMapping</RootNamespace>
+    <AssemblyName>DataMapping</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.WebForms.12.0.2402.15\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\aspnet_Applications.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\aspnet_Membership.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\aspnet_Paths.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\aspnet_Profile.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\aspnet_Roles.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\aspnet_SchemaVersions.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\aspnet_Users.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\aspnet_WebEvent_Events.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Client.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ClientMetaData.cs" />
+    <Compile Include="Entities\Feature.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\FeaturesMataData.cs" />
+    <Compile Include="Entities\JobRequirement.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\JobRequirementMetaData.cs" />
+    <Compile Include="Entities\Log.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MoreHolidaysEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoreHolidaysEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MoreHolidaysEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MoreHolidaysEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoreHolidaysEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Project.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProjectsMetaData.cs" />
+    <Compile Include="Entities\Solution.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SolutionsMetaData.cs" />
+    <Compile Include="Entities\sysdiagram.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserProfile.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserProfileMetaData.cs" />
+    <Compile Include="Entities\Vacancy.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\VacancyMetaData.cs" />
+    <Compile Include="Entities\webpages_Membership.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\webpages_OAuthMembership.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\webpages_Roles.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\webpages_UsersInRoles.cs">
+      <DependentUpon>MoreHolidaysEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\UserRoles.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IJson.cs" />
+    <Compile Include="Interfaces\IMetadata.cs" />
+    <Compile Include="Interfaces\IReasult.cs" />
+    <Compile Include="JSONData\LogData.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ChangePasswordDetails.cs" />
+    <Compile Include="Services\UserDataSession.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\DataMapping.dll" />
+    <Content Include="bin\Debug\DataMapping.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Microsoft.CSharp.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.DataVisualization.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\System.ComponentModel.DataAnnotations.dll" />
+    <Content Include="bin\Debug\System.Data.DataSetExtensions.dll" />
+    <Content Include="bin\Debug\System.Data.dll" />
+    <Content Include="bin\Debug\System.Data.Linq.dll" />
+    <Content Include="bin\Debug\System.dll" />
+    <Content Include="bin\Debug\System.Xml.dll" />
+    <Content Include="bin\Debug\System.Xml.Linq.dll" />
+    <Content Include="Entities\MoreHolidaysEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MoreHolidaysEntities.edmx</DependentUpon>
+      <LastGenOutput>MoreHolidaysEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\MoreHolidaysEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MoreHolidaysEntities.edmx</DependentUpon>
+      <LastGenOutput>MoreHolidaysEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="obj\Debug\DataMapping.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\DataMapping.dll" />
+    <Content Include="obj\Debug\DataMapping.pdb" />
+    <Content Include="obj\Debug\TempPE\Entities.ManagementSystem.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Entities.MoreHolidays.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Entities.MoreHolidays.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Entities.MoreHolidays.Designer.cs.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\DataMapping.dll.config" />
+    <EntityDeploy Include="Entities\MoreHolidaysEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MoreHolidaysEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\MoreHolidaysEntities.edmx.diagram">
+      <DependentUpon>MoreHolidaysEntities.edmx</DependentUpon>
+    </None>
+    <None Include="obj\Debug\CoreCompileInputs.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Entities\MoreHolidays.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Entities\MoreHolidays.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Entities\MoreHolidays.ssdl" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,132 @@
+﻿@model DataMapping.Entities.Feature
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section MainHeader{
+    @Html.Partial("PartialViews/PartialAdminHeader")
+
+
+
+
+}
+
+@section Container{
+<div class="main_block">
+    <div class="inner_block">
+
+    </div>
+    <div class="inner_block text-center">
+        <h1>
+            Create Feature
+        </h1>
+    </div>
+</div>
+    <div>
+
+    </div>
+    <div class="col-lg-10">
+
+        @using (Html.BeginForm("Create", "Features", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.SolutionId)
+            <form>
+
+                <table class="profile_edit_table">
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.Name)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter Feature Name" })
+
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.ArabicName)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.ArabicName, new { @class = "form-control", placeholder = "Enter Feature Name" })
+
+                            @Html.ValidationMessageFor(model => model.ArabicName)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.Description)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextAreaFor(model => model.Description, new { @class = " form-control", placeholder = "Enter Feature Description" })
+
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.ArabicDescription)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextAreaFor(model => model.ArabicDescription, new { @class = " form-control", placeholder = "Enter Feature Description" })
+
+                            @Html.ValidationMessageFor(model => model.ArabicDescription)
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td class="text-center" colspan="6">
+                            <input type="button" id="BackToList" class="btn btn-warning btn-update" value="Back To List">
+
+                        </td>
+                        <td class="text-center" colspan="6">
+                            <input type="submit" class="btn btn-success btn-update" value="Create Feature">
+
+                       </td>
+
+                    </tr>
+                </table>
+            </form>
+        }
+    </div>
+
+    <br />
+
+
+}
+
+@section MainFooter{
+
+    @Html.Partial("PartialViews/PartialAdminFooter")
+}
+
+@section styles{
+
+}
+@section  JavaScriptSection{
+
+    <script src="datepicker-ar.js"></script>
+    <script src="datepicker-fr.js"></script>
+    <script src="datepicker-he.js"></script>
+    <script src="datepicker-zh-TW.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#datetimepickerview").datepicker();
+        });
+        $('#BackToList').click(function () {
+            window.location.href = "/Features/Index?solutionId="+@Model.SolutionId;
+        });
+    </script>
+
+}
+

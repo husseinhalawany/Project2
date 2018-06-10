@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!doctype html>
+<html id="html" class="js mobile" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/assets/Shared/css/normalise_v1.0.2.css" rel="stylesheet" />
+    <link href="~/assets/Shared/css/codehouse-carousel-2.0.0.css" rel="stylesheet" />
+    <link href="~/assets/Shared/css/main.css" rel="stylesheet" />
+    <link href="~/assets/Shared/css/cookies.css" rel="stylesheet" />
+    <link href="~/assets/Shared/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/assets/Shared/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/assets/Shared/css/bootstrap.min.css" rel="stylesheet" />
+    
+    
+   
+    <link href="~/assets/Shared/css/StyleSheet.css" rel="stylesheet" />
+  
+    <link href="~/assets/Shared/css/full-slider.css" rel="stylesheet" />
+    <link href="~/assets/Shared/css/interactive-svg.css" rel="stylesheet" />
+
+    <link href="~/assets/Shared/css/component.css" rel="stylesheet" />
+    <link href="~/assets/Shared/css/mediaQ.css" rel="stylesheet" />
+  
+    <title>CPanel.net</title>
+</head>
+
+
+
+
+
+<body>
+ <div class="soon">
+     <div class="soon" style="min-height: 760px;">
+          <img src="/assets/Shared/img/soon/soon1_09.png" class="" style="position:absolute;top:25%;left:26%;">
+         <a href="https://www.pinterest.com/CPaneltec"><img src="/assets/Shared/img/soon/soon_03.png" class="cloud2" style="position:absolute;top:12%;left:51%;"></a>
+         <a href="https://twitter.com/CPanel2"><img src="/assets/Shared/img/soon/soon_06.png" class="cloud1" style="position:absolute;top:26%;left:15%;"></a>
+         <a href="https://plus.google.com/117583297751962256075"><img src="/assets/Shared/img/soon/soon_09.png" class="cloud2" style="position:absolute;top:28%;left:79%;"></a>
+         <a href="https://www.linkedin.com/company-beta/24773992/"><img src="/assets/Shared/img/soon/soon_17.png" class="cloud3" style="position:absolute;left:10%;top:49%;"></a>
+         <a href="https://www.facebook.com/CPaneltec/"><img src="/assets/Shared/img/soon/soon_19.png" class="cloud3" style="position:absolute;top:70%;left:78%;"></a>
+         <a href="https://www.instagram.com/CPaneltec/"><img src="/assets/Shared/img/soon/soon_22.png" class="cloud3" style="position:absolute;top:79%;left:24%;"></a>
+
+
+</div>
+
+
+ </div>
+
+
+
+        <script src="~/assets/Shared/js/json2.min.js"></script>
+        <script src="~/assets/Shared/js/head.load.min.js"></script>
+
+        <script src="~/assets/Shared/js/jquery.js"></script>
+        <script src="~/assets/Shared/js/jquery-ui.min.js"></script>
+
+        <script src="~/assets/Shared/js/jquery-1.10.2.min.js"></script>
+
+
+
+
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+        <script src="~/assets/Shared/js/jquery-parallax.js"></script>
+      
+        <script src="~/assets/Shared/js/jquery.flexslider-min.js"></script>
+
+        <script src="~/assets/Shared/js/plugins.js"></script>
+        <script src="~/assets/Shared/js/cookie-check.js"></script>
+        <script src="~/assets/Shared/js/jquery.MetaData.js"></script>
+
+        <script src="~/assets/Shared/js/floatingcarousel.min.js"></script>
+
+
+
+        <script src="~/assets/Shared/js/ch-sitecore.js"></script>
+
+        <script src="~/assets/Shared/js/scripts.js"></script>
+    <script src="~/assets/Shared/js/gnmenu.js"></script>
+    <script src="~/assets/Shared/js/classie.js"></script>
+    <script src="~/assets/Shared/js/interactive-svg.js"></script>
+
+  
+     
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36251023-1']);
+            _gaq.push(['_setDomainName', 'jqueryscript.net']);
+            _gaq.push(['_trackPageview']);
+
+
+
+        </script>
+        <script>
+            if (window.innerWidth <= 992) {
+                $("#slid2").remove();
+                $("#Tab").remove();
+            }
+                    var contentHeight = $(window).innerHeight()
+                    $(".pageContainer").css({ 'min-height': contentHeight + 'px' });
+                    $("header").css({ 'min-height': contentHeight + 'px' });
+                    $(".flexslider").css({ 'min-height': contentHeight + 'px' });
+                    $(".soon").css({ 'min-height': contentHeight + 'px' });
+
+        </script>
+
+        <script>
+
+            $(window).load(function () {
+
+                $('.flexslider').flexslider({
+
+
+                    animationLoop: false,
+
+
+                });
+
+
+                setTimeout(function () { $("#slid2").removeClass("hidden"); }, 2000);
+
+
+
+
+            });</script>
+
+    <script>
+            $(document).mousemove(function (e) {
+                $('.background').parallax(-30, e);
+                $('.cloud1').parallax(35, e);
+                $('.cloud2').parallax(20, e);
+                $('.cloud3').parallax(50, e);
+            });
+    </script>
+    <script>
+			new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+        <script type="text/javascript">
+
+         // vertical
+            $('#carousel-vertical').floatingCarousel({
+                scrollerAlignment: 'vertical'
+            });
+
+            //responsive
+            var opts = {
+                autoScroll: true,
+                autoScrollSpeed: 20000
+            },
+                responsiveCarousel = $('#carousel-responsive').floatingCarousel(opts);
+            $(window).resize($.debounce(100, function () {
+                responsiveCarousel.update(opts);
+            }));
+        </script>
+
+    <script type="text/javascript">
+
+            $(window).on("scroll", function () {
+                if ($(this).scrollTop() > 550) {
+                    $("#header").addClass("header_down");
+                }
+                else {
+                    $("#header").removeClass("header_down");
+                }
+            });
+</script>
+
+
+</body>
+</html>

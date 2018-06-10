@@ -1,0 +1,55 @@
+﻿@model DataMapping.Entities.UserProfile
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section MainHeader{
+    @Html.Partial("PartialViews/PartialAdminHeader")
+
+}
+
+@section Container{
+    <div class="main_block">
+        <div class="inner_block">
+
+        </div>
+        <div class="inner_block text-center">
+            <h1>
+                Manage Clients
+            </h1>
+        </div>
+    </div>
+    <br />
+
+    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+        <input type="button" value="Create" id="AddClient" class="adduser col-lg-12 col-md-12 col-xs-12 col-sm-12 placeholder classnode" />
+    </div>
+    <div id="ClientsList"> </div>
+    <div class="col-md-12 text-center" id="loading"></div>
+}
+@section MainFooter{
+
+    @Html.Partial("PartialViews/PartialAdminFooter")
+}
+@section styles{
+
+}
+@section  JavaScriptSection{
+    <script type="text/javascript">
+        var page = -1;
+        var _inCallback = false;
+        var dcList = true;
+
+
+        loadClients();
+       
+
+        $('#AddClient').click(function () {
+            window.location.href = "/Clients/Create";
+        });
+
+
+    </script>
+
+}

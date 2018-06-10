@@ -1,0 +1,119 @@
+﻿@model BusinessLogic.Models.LogDataIndexModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+@section MainHeader{
+
+    @Html.Partial("PartialViews/PartialAdminHeader")
+}
+@section Container{
+
+
+
+
+    <div id="content" class="span10 backGraundTR">
+
+        <ul class="breadcrumb">
+            <li> <em class="icon-home"></em> <a href="@Url.Action("Index", "Home")">Home</a> <em class="icon-angle-right"></em> </li>
+            <li><a href="@Url.Action("Index", "Logs")">Manage logs</a><em class="icon-angle-right"></em></li>
+            <li><a href="@Url.Action("Index", "Logs")">Logs</a><em class="icon-angle-right"></em></li>
+        </ul>
+        <div class="row-fluid">
+
+            <div class="box blue  ">
+                <div class="blogs-head span12 "></div>
+                <div class="box-content">
+                    <div class="row-fluid">
+                        @if (Model.Succeeded == true)
+                        {
+                            <div class="statbox">
+                                @if (@Model.LogCount == 0)
+                                {
+                                    <div class="text"><i class="icon white icon-warning-sign  "></i>You Haven`t any Logs</div>
+                                }
+                                else if (@Model.LogCount == 1)
+                                {
+                                    <div class="text"><i class="icon white icon-warning-sign  "></i>You Have One Log</div>
+                                }
+                                else
+                                {
+                                    <div class="text"><i class="icon white icon-warning-sign  "></i>You Have (@Model.LogCount) Logs</div>
+                                }
+                            </div>
+                            if (Model.LogData != null)
+                            {
+                                using (Html.BeginForm("Delete", "Logs", new { id = Model.LogData.Id }, FormMethod.Post, new { @id = Model.LogData.StoryName }))
+                                {
+                                    <div class="pablish-actions ">
+                                        <button class="btn btn-danger " style="float: right; overflow: auto;" id="Btn" type="submit"><i class="halflings-icon white trash"></i></button>
+                                    </div>
+                                    <div class="Log-Propierties">Message</div><br />
+                                                <div class="Log-Propierties-Value">@Model.LogData.Message</div><br />
+                                                <div class="Log-Propierties">Date And Time</div><br />
+                                                <div class="Log-Propierties-Value"> @Model.LogData.CreateDate</div><br />
+                                                <div class="Log-Propierties">Story Name</div>
+                                                <div class="Log-Propierties-Value">
+                                                    You have @Model.CountStoryLog logs with story name =  @Model.LogData.StoryName
+                                                    &nbsp;
+                                                    &nbsp;
+                                                    &nbsp;
+                                                    &nbsp;
+                                                    
+                                                    <a href="@Url.Action("DeleteAllLogsWithStoryName","Logs", new { storyName = Model.LogData.StoryName})">Delete All</a>
+                                                </div>
+                                                <div class="Log-Propierties">Parameters</div><br />
+                                                            <div class="Log-Propierties-Value">@Model.LogData.Parameters</div><br/>
+                                                            <div class="Log-Propierties">Stack Trace</div><br />
+                                                            <div class="Log-Propierties-Value">@Model.LogData.StackTrace</div><br />
+
+                                                            <div class="pablish-actions ">
+                                                                <button class="btn btn-danger " style="float: right; overflow: auto;" id="Btn" type="submit"><i class="halflings-icon white trash"></i></button>
+                                                            </div>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <script>
+                                alert(@Model.ErrorMessage);
+                            </script>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+}
+
+
+@section MainFooter{
+
+    @Html.Partial("PartialViews/PartialAdminFooter")
+}
+@section  JavaScriptSection{
+
+    <script>
+
+
+    function DeleteAllStories(StoryName) {
+        jQuery.ajax({
+            url: "/Logs/DeleteAllLogsWithStoryName",
+            type: "Get",
+            data: { "storyName": StoryName },
+            success: function (data) {
+
+            }
+        });
+
+    }
+    </script>
+    
+    
+}
+
+

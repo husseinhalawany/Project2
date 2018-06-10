@@ -1,0 +1,150 @@
+﻿@model DataMapping.Entities.Client
+
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section MainHeader{
+    @Html.Partial("PartialViews/PartialAdminHeader")
+
+
+
+
+}
+
+@section Container{
+    <div class="main_block">
+        <div class="inner_block">
+
+        </div>
+        <div class="inner_block text-center">
+            <h1>
+                Create Client
+            </h1>
+        </div>
+    </div>
+    <div>
+
+    </div>
+
+    <tr class="col-lg-10">
+
+        @using (Html.BeginForm("Create", "Clients", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <form>
+
+                <table class="profile_edit_table">
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(Model => Model.Name)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter Client Name" })
+
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(Model => Model.ArabicName)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.ArabicName, new { @class = "form-control", placeholder = "Enter Client Name" })
+
+                            @Html.ValidationMessageFor(model => model.ArabicName)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.WebsiteUrl)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.WebsiteUrl, new { @class = " form-control", placeholder = "Enter Client Website Url" })
+
+                            @Html.ValidationMessageFor(model => model.WebsiteUrl)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.WorkField)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.WorkField, new { @class = " form-control", placeholder = "Enter Client Work Field" })
+
+                            @Html.ValidationMessageFor(model => model.WorkField)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.ArabicWorkField)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.ArabicWorkField, new { @class = " form-control", placeholder = "Enter Client Work Field" })
+
+                            @Html.ValidationMessageFor(model => model.ArabicWorkField)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.ImgUrl)
+                        </td>
+                        <td class="text-left" colspan="4">
+
+                            <iframe src='@Url.Action("UploadDocument", "ImageUpload")' width="350" height="200" scrolling="no"></iframe>
+
+                            <br /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center" colspan="6">
+                            <input type="button" id="BackToList" class="btn btn-warning btn-update" value="Back To List">
+                        </td>
+
+                        <td class="text-center" colspan="6">
+                            <input type="submit" class="btn btn-success btn-update" value="Create Client">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        }
+
+</tr>
+
+
+}
+
+@section MainFooter{
+
+    @Html.Partial("PartialViews/PartialAdminFooter")
+}
+@section styles{
+
+}
+@section  JavaScriptSection{
+
+    <script src="datepicker-ar.js"></script>
+    <script src="datepicker-fr.js"></script>
+    <script src="datepicker-he.js"></script>
+    <script src="datepicker-zh-TW.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#datetimepickerview").datepicker();
+        });
+
+        $('#BackToList').click(function () {
+            window.location.href = "/Clients/Index";
+        });
+    </script>
+
+}

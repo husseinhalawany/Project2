@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="624dc39c79424ecf8e04a36b71e9c339" Name="Diagram1">
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_Membership" Width="1.5" PointX="8" PointY="6.5" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_Paths" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="9.875" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="6.375" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_Profile" Width="1.5" PointX="7.5" PointY="13.875" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_Roles" Width="1.5" PointX="3" PointY="15.75" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_SchemaVersions" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_Users" Width="1.5" PointX="5.25" PointY="13.375" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.aspnet_WebEvent_Events" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.Client" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.Feature" Width="1.5" PointX="13" PointY="1" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.JobRequirement" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.Log" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.Project" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.Solution" Width="1.5" PointX="10.75" PointY="1.125" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.sysdiagram" Width="1.5" PointX="9.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.UserProfile" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.Vacancy" Width="1.5" PointX="5.75" PointY="1.25" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.webpages_Membership" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.webpages_OAuthMembership" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.webpages_Roles" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="MoreHolidaysDBModel.webpages_UsersInRoles" Width="1.5" PointX="14.75" PointY="7.75" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK__aspnet_Me__Appli__06CD04F7" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK__aspnet_Pa__Appli__3864608B" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK__aspnet_Ro__Appli__25518C17" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK__aspnet_Us__Appli__76969D2E" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK__aspnet_Me__UserI__07C12930" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK__aspnet_Pe__PathI__3E1D39E1" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK__aspnet_Pe__PathI__41EDCAC5" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK__aspnet_Pe__UserI__42E1EEFE" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK__aspnet_Pr__UserI__1BC821DD" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK_Features_Solutions" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK_JobRequirements_Vacancies" />
+        <AssociationConnector Association="MoreHolidaysDBModel.FK_UserProfile_webpages_Roles" />
+        <AssociationConnector Association="MoreHolidaysDBModel.aspnet_UsersInRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

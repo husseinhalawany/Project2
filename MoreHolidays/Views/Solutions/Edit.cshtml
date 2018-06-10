@@ -1,0 +1,133 @@
+﻿@model DataMapping.Entities.Solution
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section MainHeader{
+    @Html.Partial("PartialViews/PartialAdminHeader")
+
+}
+
+@section Container{
+
+    <div>
+        <h1>Update @Model.Name Info</h1>
+
+    </div>
+
+    <div class="col-lg-10">
+
+        @using (Html.BeginForm("Edit", "Solutions", FormMethod.Post, new { enctype = "multipart/form-data", id = Model.Id }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model=>model.ImgUrl)
+            <form>
+
+                <table class="profile_edit_table">
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.Name)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter Solution Name" })
+
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.ArabicName)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.ArabicName, new { @class = "form-control", placeholder = "Enter Solution Name" })
+
+                            @Html.ValidationMessageFor(model => model.ArabicName)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.Overview)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextAreaFor(model => model.Overview, new { @class = " form-control", placeholder = "Enter Project Overview" })
+
+                            @Html.ValidationMessageFor(model => model.Overview)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.ArabicOverview)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextAreaFor(model => model.ArabicOverview, new { @class = " form-control", placeholder = "Enter Project Overview" })
+
+                            @Html.ValidationMessageFor(model => model.ArabicOverview)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.ImgUrl)
+                        </td>
+                        <td class="text-left" colspan="4">
+
+                            <iframe src='@Url.Action("UploadDocument", "ImageUpload",new { Url = Model.ImgUrl })'  width="350" height="200" scrolling="no"></iframe>
+
+                            <br /><br />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-center" colspan="6">
+                            <input type="button" id="BackToList" class="btn btn-warning btn-update" value="Back To List">
+                        </td>
+
+                        <td class="text-center" colspan="6">
+                            <input type="submit" class="btn btn-success btn-update" value="Edit Solution">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        }
+    </div>
+
+    <br />
+
+
+}
+
+@section MainFooter{
+
+    @Html.Partial("PartialViews/PartialAdminFooter")
+}
+@section styles{
+
+}
+@section  JavaScriptSection{
+
+    <script src="datepicker-ar.js"></script>
+    <script src="datepicker-fr.js"></script>
+    <script src="datepicker-he.js"></script>
+    <script src="datepicker-zh-TW.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#datetimepickerview").datepicker();
+        });
+
+        $('#BackToList').click(function () {
+            window.location.href = "/Solutions/Index";
+        });
+    </script>
+
+}
+
+
+
+
+

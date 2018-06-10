@@ -1,0 +1,105 @@
+﻿@model DataMapping.Entities.JobRequirement
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section MainHeader{
+    @Html.Partial("PartialViews/PartialAdminHeader")
+}
+
+
+@section Container{
+    <div class="main_block">
+        <div class="inner_block">
+
+        </div>
+        <div class="inner_block text-center">
+            <h1>
+                Create Vacancy Requirement
+            </h1>
+        </div>
+    </div>
+    <div>
+
+    </div>
+    <div class="col-lg-10">
+
+        @using (Html.BeginForm("Create", "JobRequirements", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model =>model.VacancyId)
+            <form>
+
+                <table class="profile_edit_table">
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.Details)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.Details, new { @class = "form-control", placeholder = "Enter Requirement" })
+                            @Html.ValidationMessageFor(model => model.Details)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.ArabicDetails)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.ArabicDetails, new { @class = "form-control", placeholder = "Enter Requirement" })
+                            @Html.ValidationMessageFor(model => model.ArabicDetails)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="text-center" colspan="6">
+                            <input type="button" id="BackToList" class="btn btn-warning btn-update" value="Back To List">
+                        </td>
+
+                        <td class="text-center" colspan="6">
+                            <input type="submit" class="btn btn-success btn-update" value="Create Vacancy Requirement">
+                        </td>
+
+                    </tr>
+                </table>
+            </form>
+        }
+    </div>
+
+    <br />
+
+
+}
+
+@section MainFooter{
+
+    @Html.Partial("PartialViews/PartialAdminFooter")
+}
+
+@section styles{
+
+}
+@section  JavaScriptSection{
+
+    <script src="datepicker-ar.js"></script>
+    <script src="datepicker-fr.js"></script>
+    <script src="datepicker-he.js"></script>
+    <script src="datepicker-zh-TW.js"></script>
+
+    <script type="text/javascript">
+        
+        $('#BackToList').click(function () {
+            window.location.href = "/JobRequirements/Index?vacancyId="+@Model.VacancyId;
+        });
+    </script>
+
+}
+
+
+
+
+

@@ -1,0 +1,27 @@
+﻿/* Cookies Bar */
+#cookiesBar, #cookiesinfo {display:none;color:#2f2f2f}
+#cookiesBar {border-bottom: 2px solid #2f2f2f; display: block;}
+#cookiesinfo { background: #2f2f2f }
+#cookiesinfo { margin: 0;color: #fff;padding: 15px 0; }
+#cookiesinfo p { margin-bottom: 0;}
+#cookiesinfo #infowrap { margin: 0 auto; width: 1000px; padding: 15px 0; color: #fff;}
+#cookiesinfo #infowrap ul { margin-left: 2em; margin-bottom:10px}
+#showcookiesinfo {margin-left:30px}
+#allowcookies {margin-left:0px}
+#disablecookies {margin-left:0px}
+#cookies .query { padding: 15px 0; }
+
+/* left */
+#cookiesBar .cookiesquery { margin: 0 auto; width: 1000px; }
+#cookiesBar .cookiesquery .query{float:left;}
+#cookiesBar .cookiesallow{float:left;padding-top:2px;vertical-align:middle}
+#cookiesBar .cookiesallow #allowcookies{display:inline-block;height:28px;margin-left:12px;padding-right:12px;}
+#cookiesBar #AllowCookieLabel:hover{ text-decoration: underline!important;}
+#cookiesBar .cookiesallow #allowcookies span {display:inline-block;padding:5px 0 0 0;margin:0;line-height:14px;padding:3px 8px 8px 32px}
+/* right */
+#cookiesBar .cookiesmore{float:right;vertical-align:middle;}
+#cookiesBlock {margin: 0 auto;width: 960px;}
+
+@media screen and (max-width:980px) and (min-width:768px) {
+    #cookiesBar .cookiesquery { width: 748px;padding: 0 10px;}
+}

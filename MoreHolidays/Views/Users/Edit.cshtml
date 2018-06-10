@@ -1,0 +1,259 @@
+﻿@model BussinessLogic.Model.UpdateProfileModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+@section MainHeader{
+
+    @Html.Partial("PartialViews/PartialAdminHeader")
+}
+@section Container{
+
+
+
+    <h1>Update @Model.UserName Info</h1>
+
+
+    <div class="col-lg-10 col-lg-offset-1">
+
+
+        @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.UserId)
+            @Html.HiddenFor(model=>model.RolesId)
+            @Html.HiddenFor(model=>model.ProfilePictureUrl)
+
+
+
+
+
+
+            <form>
+                <table class="profile_edit_table">
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            
+                        </td>
+                        <td class="text-left" colspan="4">
+                            <iframe src='@Url.Action("UploadDocument", "ImageUpload",new { Url = Model.ProfilePictureUrl })' scrolling="no"  style="width: 350px;
+        height: 200px;
+        padding: 5px;
+        border-radius: 5px;
+        border-left:0px;
+        border-top:0px;
+        background-color: #fff;
+        -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+        -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+        -o-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+        margin:0px auto;
+
+        "></iframe>
+
+                            <br /><br /></td></tr>
+
+
+
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.FirstName)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "Enter User First Name" })
+                            @Html.ValidationMessageFor(model => model.FirstName)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.LastName)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Enter User Last Name" })
+                            @Html.ValidationMessageFor(model => model.LastName)
+                        </td>
+                    </tr>
+
+                  
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.Email)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Enter Email" })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </td>
+                    </tr>
+
+                    
+
+                    <tr>
+                        <td colspan="2" class="text-left">
+                            @Html.LabelFor(model => model.BirthDate)
+                        </td>
+                        <td colspan="4" class="text-left">
+                            @Html.TextBoxFor(model => model.BirthDate,new { id = "datetimepickerview", @Value = @Model.BirthDate.ToString("yyyy-MM-dd") , @class = "form-control", @onchange = "validatedate()", @onblur = "validatedate()", @onfocus = "document.getElementById('DateLabel').innerHTML='';", placeholder = " Enter Join Date" })
+                            @Html.ValidationMessageFor(model => model.BirthDate)
+                            <p id="DateLabel"></p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.Phone1)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.Phone1, new { @class = "form-control", placeholder = "Enter Phone1" })
+                            @Html.ValidationMessageFor(model => model.Phone1)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.Phone2)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextBoxFor(model => model.Phone2, new { @class = "form-control", placeholder = "Enter Phone2" })
+                            @Html.ValidationMessageFor(model => model.Phone2)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left" colspan="2">
+                            @Html.LabelFor(model => model.Address)
+                        </td>
+                        <td class="text-right" colspan="4">
+                            @Html.TextAreaFor(model => model.Address, new { @class = "form-control" , @rows=5 , placeholder = "Enter Address" })
+                            @Html.ValidationMessageFor(model => model.Address)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-center" colspan="6">
+                            <input type="button" id="BackToList" class="btn btn-warning btn-update" value="Back To List">
+                        </td>
+
+                        <td class="text-center" colspan="6">
+                            <input type="submit" class="btn btn-success btn-update" value="Update Data">
+
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        }
+    </div>
+
+
+    <br />
+
+
+}
+
+
+
+
+
+@section MainFooter{
+
+    @Html.Partial("PartialViews/PartialAdminFooter")
+}
+@section JavaScriptSection{
+    <script type="text/javascript">
+        jQuery(function () {
+            jQuery("#MonthList").change(function () { GetMonthDays(); });
+            jQuery("#YearList").change(function () { GetMonthDays(); });
+        });
+        $(document).ready(function () {
+            $("#datetimepickerview").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+
+        function GetMonthDays() {
+            var month = jQuery("#MonthList").val();
+            var year = jQuery("#YearList").val();
+            var daysNumber = new Date(year, month, 0).getDate();
+            jQuery.get("/Date/DaysList" + "?days=" + daysNumber, function (data) {
+                jQuery("#DayList").html(data);
+            });
+        }
+
+        $('#BackToList').click(function () {
+            window.location.href = "/Users/Index?roleId="+@Model.RolesId;
+        });
+
+        function validatedate()  
+        {  
+            //alert("OK");
+            var inputText= document.getElementById("datetimepickerview").value;
+            var dateformat = /^(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])$/;  
+            // Match the date format through regular expression  ط
+
+            //alert(dateformat);
+
+            if(inputText.match(dateformat))  
+            {  
+                ////alert(inputText);
+ 
+                ////Test which seperator is used '/' or '-'  
+                //var opera1 = inputText.value.split('/');  
+                //var opera2 = inputText.value.split('-');  
+                //lopera1 = opera1.length;  
+                //lopera2 = opera2.length;  
+                //// Extract the string into month, date and year  
+                //if (lopera1>1)  
+                //{  
+                //    var pdate = inputText.value.split('/');  
+                //}  
+                //else if (lopera2>1)  
+                //{  
+                //    var pdate = inputText.value.split('-');  
+                //}  
+                //var dd = parseInt(pdate[0]);  
+                //var mm  = parseInt(pdate[1]);  
+                //var yy = parseInt(pdate[2]);  
+                //// Create list of days of a month [assume there is no leap year by default]  
+                ////var ListofDays = [31,28,31,30,31,30,31,31,30,31,30,31];  
+                ////if (mm==1 || mm>2)  
+                ////{  
+                ////    if (dd>ListofDays[mm-1])  
+                ////    {  
+                ////        alert('Invalid date format!');  
+                ////        return false;  
+                ////    }  
+                ////}  
+                ////if (mm==2)  
+                ////{  
+                ////    var lyear = false;  
+                ////    if ( (!(yy % 4) && yy % 100) || !(yy % 400))   
+                ////    {  
+                ////        lyear = true;  
+                ////    }  
+                ////    if ((lyear==false) && (dd>=29))  
+                ////    {  
+                ////        alert('Invalid date format!');  
+                ////        return false;  
+                ////    }  
+                ////    if ((lyear==true) && (dd>29))  
+                ////    {  
+                ////        alert('Invalid date format!');  
+                ////        return false;  
+                ////    }  
+                ////}  
+            }  
+            else  
+            {  
+                document.getElementById("DateLabel").innerHTML="* Invalid date format!";
+                document.getElementById("DateLabel").style.color="red";
+                //alert("* Invalid date format!");  
+            }  
+        }  
+
+    </script>
+
+}
